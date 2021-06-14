@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Login Page</title>
+    <th:block th:include="common/common.html :: headerfiles">
+    </th:block>
+</head>
+<body>
+<header th:insert="common/common.html :: header"></header>
+<div id="main" class="ui raised very padded text container segment">
+    <div th:insert="common/common.html :: center-logo"></div>
+    <div class="ui placeholder segment">
+        <div class="ui two column very relaxed stackable grid">
+            <div class="column">
+                <form action="#" th:action="@{login}" th:object="${user}" method="post">
+                    <div class="ui container center aligned" th:classappend="${#vars.getVariable('error') ? 'red header' : 'header'}">
+                        <p th:text="${message}"></p>
+                    </div>
+                    <div class="ui form">
+                        <div class="field">
+                            <label>Email</label>
+                            <div class="ui left icon input">
+                                <input type="text" placeholder="Email" th:field="*{email}">
+                                <i class="envelope open icon"></i>
+                            </div>
+                            <div class="ui pointing red basic label" th:if="${#fields.hasErrors('email')}"
+                                 th:errors="*{email}"></div>
+                        </div>
+                        <div class="field">
+                            <label>Password</label>
+                            <div class="ui left icon input">
+                                <input type="password" th:field="*{password}">
+                                <i class="lock icon"></i>
+                            </div>
+                            <div class="ui pointing red basic label" th:if="${#fields.hasErrors('password')}"
+                                 th:errors="*{password}"></div>
+                        </div>
+                        <button type="submit" class="ui blue submit button">
+                            Login
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <div class="middle aligned column">
+                <form action="#" th:action="@{signup}" method="get">
+                    <button type="submit" class="ui primary button">
+                        <i class="signup icon"></i>
+                        Sign Up
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div class="ui vertical divider">
+            Or
+        </div>
+    </div>
+</div>
+<div th:replace="common/common.html :: footer"></div>
+</body>
+</html>

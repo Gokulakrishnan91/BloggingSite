@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="headerfiles">
+    <meta charset="UTF-8"/>
+    <link th:href="@{/semantic/dist/semantic.min.css}" type="text/css" rel="stylesheet">
+    <link th:href="@{/css/styles.css}" rel="stylesheet">
+    <script
+            src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous"></script>
+    <script src="semantic/dist/semantic.min.js"></script>
+</head>
+<body>
+<div th:fragment="header">
+    <div>
+        <a th:href="@{login}">Login</a> |
+        <a th:href="@{signup}">Sign Up</a> |
+        <a th:href="@{homepage}">Home Page</a> |
+        <a th:href="@{about}">About Us</a> |
+    </div>
+</div>
+<div th:fragment="center-logo">
+    <h2 class="ui center aligned icon header">
+        <i class="circular users icon"></i>
+        Blog
+    </h2>
+</div>
+<footer th:fragment="footer">
+    <div class="ui inverted vertical footer segment form-page">
+        <div class="ui container center aligned">
+            Blog Application Team 2020. All Rights Reserved.
+        </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Blog Home Page</title>
+    <th:block th:include="common/common.html :: headerfiles">
+    </th:block>
+</head>
+<body>
+<header th:insert="common/common.html :: header"></header>
+<div id="main" class="ui raised very padded text container segment">
+    <div th:insert="common/common.html :: center-logo"></div>
+    <h2 class="ui header center aligned">About Us</h2>
+    <p>We are a set of people who aspire tech and hope this page would give
+     you some insights on how to design a blog posting application.</p>
+</div>
+<div th:replace="common/common.html :: footer"></div>
+</body>
+</html>

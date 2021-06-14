@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Sign Up Page</title>
+    <th:block th:include="common/common.html :: headerfiles">
+    </th:block>
+</head>
+<body>
+<header th:insert="common/common.html :: header"></header>
+<div id="main" class="ui raised very padded text container segment">
+    <div th:insert="common/common.html :: center-logo"></div>
+    <div id="signup-container" class="ui placeholder segment container aligned center">
+        <div class="ui one column very relaxed stackable grid">
+            <div class="column">
+                <form action="#" th:action="@{signup}" th:object="${user}" method="post">
+                    <div class="ui form">
+                        <div class="field">
+                            <label>Username</label>
+                            <div class="ui left icon input">
+                                <input type="text" placeholder="Username" th:field="*{userName}">
+                                <i class="user icon"></i>
+                            </div>
+                            <div class="ui pointing red basic label" th:if="${#fields.hasErrors('userName')}" th:errors="*{userName}"></div>
+                        </div>
+                        <div class="field">
+                            <label>Password</label>
+                            <div class="ui left icon input">
+                                <input type="password" th:field="*{password}">
+                                <i class="lock icon"></i>
+                            </div>
+                            <div class="ui pointing red basic label" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
+                        </div>
+                        <div class="field">
+                            <label>Email</label>
+                            <div class="ui left icon input">
+                                <input type="text" placeholder="Email" th:field="*{email}">
+                                <i class="envelope open icon"></i>
+                            </div>
+                            <div class="ui pointing red basic label" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+                        </div>
+                        <button class="ui blue submit button" type="submit">Sign Up</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:replace="common/common.html :: footer"></div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Blog Home Page</title>
+    <th:block th:include="common/common.html :: headerfiles">
+    </th:block>
+</head>
+<body>
+<header th:insert="common/common.html :: header"></header>
+<div class="ui right floated button" th:if="${user.userName}">Logged In As <span th:text="${user.userName}"
+                                                                                 th:remove="tag"></span>
+</div>
+<div id="main" class="ui raised very padded text container segment">
+    <div th:insert="common/common.html :: center-logo"></div>
+    <div th:if="${user.userId}">
+        <form class="ui form" action="#" th:action="@{homepage}" th:object="${userPost}" method="post">
+            <input type="hidden" id="userId" name="userId" th:value="${user.userId}"/>
+            <input type="hidden" id="userName" name="userName" th:value="${user.userName}"/>
+            <h2 class="ui header center aligned">Enter Your Posts</h2>
+            <textarea placeholder="Write your posts here..." rows="3" th:field="*{message}"></textarea>
+            <button id="post-submit" type="submit" class="ui positive right floated button">Post</button>
+        </form>
+    </div>
+    <h2 class="ui header center aligned">Showing All Posts</h2>
+    <div th:if="${#lists.isEmpty(userPosts)}">
+        <h6 class="ui container center aligned">No Posts Yet...</h6>
+    </div>
+    <div class="ui piled segment" th:each="userPost: ${userPosts}">
+        <h4 class="ui header" th:text="${userPost.userName}"></h4>
+        <p th:text="${userPost.message}"></p>
+    </div>
+</div>
+
+<div th:replace="common/common.html :: footer"></div>
+</body>
+</html>
