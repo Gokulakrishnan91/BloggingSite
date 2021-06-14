@@ -16,8 +16,10 @@ Provided design should support below use cases:
 Implementation details:
 =======================
 Below documents are available in /doc directory:
-<BlogPost.drawio> - High Level Design 
-<Forum System Design.pptx> - Presentation
+
+BlogPost.drawio - High Level Design 
+
+Forum System Design.pptx - Presentation
 
 Below usecases are covered in the code implementation :
 
